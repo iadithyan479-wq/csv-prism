@@ -1,0 +1,13 @@
+order_id,customer,region,plan,orders,amount,status
+1001,Amara Singh,North,Pro,12,1840.50,paid
+1002,Leo Martin,West,Starter,3,210.00,paid
+1003,Noah Williams,South,Pro,8,1220.00,pending
+1004,Amara Singh,North,Pro,12,1840.50,paid
+1005,Mia Chen,East,Team,24,4920.00,paid
+1006,Oliver Brown,West,Starter,2,140.00,failed
+1007,Elena Rossi,East,Team,17,3485.75,paid
+1008,Sam Okafor,South,Pro,6,920.00,paid
+1009,Theo Silva,North,Starter,,180.00,pending
+1010,Mia Chen,East,Team,24,4920.00,paid
+1011,Grace Kim,West,Pro,9,1350.00,paid
+1012,Arjun Patel,South,,4,560.00,paid

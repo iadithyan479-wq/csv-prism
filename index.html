@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="CSV Prism — understand a dataset before you model it.">
+  <title>CSV Prism · Data, made legible</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet"><link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="shell">
+<header class="topbar"><a class="brand" href="#"><span class="brand-mark">◇</span><span>csv prism</span></a><div class="top-right"><span class="local"><i></i> local-only</span><button class="btn ghost" id="openBtn">Open CSV</button><input id="fileInput" type="file" accept=".csv,text/csv" hidden><button class="btn dark" id="sampleBtn">Load sample</button></div></header>
+<main>
+<section class="hero"><div><p class="kicker">A SMALL LENS FOR BIG TABLES</p><h1>Data, made<br><em>legible.</em></h1><p class="intro">Drop in a CSV and get an honest first look: types, missing values, distributions, and the rows that need your attention.</p></div><div class="privacy-card"><span>↗</span><strong>Your data stays here.</strong><p>CSV Prism runs entirely in your browser. Nothing is uploaded, indexed, or remembered.</p></div></section>
+<section id="dropZone" class="drop-zone"><div class="drop-icon">＋</div><div><strong>Drop a CSV anywhere here</strong><p>or <button id="browseBtn" class="text-btn">browse your files</button> · UTF-8 CSV up to your browser’s available memory</p></div><div class="drop-hint">⌘ V</div></section>
+<section class="dashboard" id="dashboard" hidden>
+<div class="dataset-head"><div><p class="kicker">CURRENT DATASET</p><h2 id="datasetName">sample-orders.csv</h2><span id="datasetMeta">—</span></div><div class="health"><span>DATA HEALTH</span><strong id="healthScore">—</strong><i class="health-ring"></i></div></div>
+<nav class="tabs" aria-label="Dataset views"><button class="tab active" data-tab="overview">Overview</button><button class="tab" data-tab="columns">Columns</button><button class="tab" data-tab="rows">Rows <span id="rowCountBadge">0</span></button></nav>
+<div class="view" id="overviewView"><div class="stats-grid"><article class="stat-card accent-mint"><span>ROWS</span><b id="statRows">0</b><small id="statRowsNote">records analyzed</small></article><article class="stat-card accent-lilac"><span>COLUMNS</span><b id="statCols">0</b><small id="statColsNote">fields detected</small></article><article class="stat-card accent-peach"><span>COMPLETE CELLS</span><b id="statComplete">0%</b><small id="statCompleteNote">no missing values</small></article><article class="stat-card accent-yellow"><span>LIKELY DUPLICATES</span><b id="statDuplicates">0</b><small id="statDuplicateNote">exact row matches</small></article></div><div class="two-col"><section class="panel"><div class="panel-head"><div><h3>Column signals</h3><p>What the profiler notices first</p></div><span class="mini-label">AT A GLANCE</span></div><div id="signals" class="signals"></div></section><section class="panel"><div class="panel-head"><div><h3>Value shape</h3><p>Distribution across the dataset</p></div><span class="mini-label">ROWS</span></div><div id="chart" class="chart"></div><div id="chartCaption" class="chart-caption"></div></section></div><section class="panel attention"><div class="panel-head"><div><h3>Needs a second look</h3><p>Small warnings before you trust the table</p></div><span class="mini-label warning-label">CHECK</span></div><div id="warnings" class="warnings"></div></section></div>
+<div class="view" id="columnsView" hidden><section class="panel"><div class="panel-head"><div><h3>Column dictionary</h3><p>Inferred types and completeness for every field</p></div></div><div class="table-scroll"><table><thead><tr><th>Column</th><th>Inferred type</th><th>Filled</th><th>Unique</th><th>Example</th></tr></thead><tbody id="columnsTable"></tbody></table></div></section></div>
+<div class="view" id="rowsView" hidden><section class="panel"><div class="panel-head"><div><h3>Rows</h3><p>Previewing the first 100 records</p></div><input class="search" id="rowSearch" placeholder="Filter rows…"></div><div class="table-scroll"><table><thead id="rowsHead"></thead><tbody id="rowsTable"></tbody></table></div></section></div>
+</section>
+<section class="empty-state" id="emptyState"><div class="empty-illustration"><span></span><span></span><span></span></div><h2>Bring a table into focus.</h2><p>CSV Prism turns an unfamiliar spreadsheet into a quick, useful conversation.</p></section>
+</main><footer><span>CSV PRISM · OPEN SOURCE · MIT</span><span>NO SERVER. NO TRACKING. JUST SIGNAL.</span></footer><div id="toast" class="toast"></div>
+</div><script src="app.js"></script>
+</body></html>
